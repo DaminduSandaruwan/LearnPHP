@@ -5,11 +5,11 @@
         $email = $_POST['email'];
 
         if(empty($firstname)|| empty($email)){
-            headder("Location:ErrorHandling.php?signup=empty");
+            header("Location:ErrorHandling.php?signup=empty");
         }
         else{
-            if(filter_var($email, FILTER_VALIDATE_EMAIL)){
-                headder("Location:ErrorHandling.php?signup=invalidemail");
+            if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+                header("Location:ErrorHandling.php?signup=invalidemail");
             }
             else{
                 echo "Sign up user!!!!";
@@ -17,7 +17,7 @@
         }
     }
     else{
-        headder("Location:ErrorHandling.php?signup=error");
+        header("Location:ErrorHandling.php?signup=error");
         //  echo "You did not fill out a form!";
     }
 ?>
