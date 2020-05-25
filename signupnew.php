@@ -6,14 +6,22 @@
 
         if(empty($firstname)|| empty($email)){
             header("Location:ErrorHandling.php?signup=empty");
+            exit();
         }
         else{
-            if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-                header("Location:ErrorHandling.php?signup=invalidemail");
+            if(!preg_match("/^[a-zA-Z]*$/",$firstname)){
+                header("Location:ErrorHandling.php?signup=char");
+                exit();
             }
             else{
-                echo "Sign up user!!!!";
+                if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+                    header("Location:ErrorHandling.php?signup=invalidemail");
+                }
+                else{
+                    echo "Sign up user!!!!";
+                }
             }
+            
         }
     }
     else{
