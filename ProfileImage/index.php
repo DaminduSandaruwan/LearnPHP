@@ -13,6 +13,28 @@
 <body>
 <?php 
 
+    $sql = "SELECT * FROM user";
+    $result = mysqli_query($conn, $sql);
+    if (mysqli_num_rows($result)>0) {
+        while($row = mysqli_fetch_assoc($result)){
+            $id=$row['id'];
+            $sqlImg="SELECT * FROM profileimg WHERE userid='$id'";
+            $resultImg = mysqli_query($conn,$sqlImg);
+            while ($rowImg = mysqli_fetch_assoc($resultImg)) {
+                echo "<div>";
+                    if ($rowImg['status']==0) {
+                        echo "<img src='uploads/profile".$id.".png'>";
+                    }
+                    else{
+                        echo "<img src='uploads/ProfileDefault.png'>";
+                    }
+                    echo $row['username'];
+                echo "</div>";
+            }
+        }
+    }else{
+        echo "THERE ARE NO USERS YET!!!!";
+    }
 
     if(isset($_SESSION['id'])){
         if ($_SESSION['id']==1) {
