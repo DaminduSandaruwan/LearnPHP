@@ -9,6 +9,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <?php 
@@ -21,14 +22,14 @@
             $sqlImg="SELECT * FROM profileimg WHERE userid='$id'";
             $resultImg = mysqli_query($conn,$sqlImg);
             while ($rowImg = mysqli_fetch_assoc($resultImg)) {
-                echo "<div>";
+                echo "<div class='user-container'>";
                     if ($rowImg['status']==0) {
                         echo "<img src='uploads/profile".$id.".png'>";
                     }
                     else{
                         echo "<img src='uploads/ProfileDefault.png'>";
                     }
-                    echo $row['username'];
+                    echo "<p>".$row['username']."</p>";
                 echo "</div>";
             }
         }
