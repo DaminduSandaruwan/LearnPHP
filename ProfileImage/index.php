@@ -24,10 +24,10 @@
             while ($rowImg = mysqli_fetch_assoc($resultImg)) {
                 echo "<div class='user-container'>";
                     if ($rowImg['status']==0) {
-                        echo "<img src='uploads/profile".$id.".jpg?''".mt_rand()."'>";
+                        echo "<img src='uploads/profile".$id.".png?'".mt_rand()."'>";
                     }
                     else{
-                        echo "<img src='uploads/ProfileDefault.jpg'>";
+                        echo "<img src='uploads/ProfileDefault.png'>";
                     }
                     echo "<p>".$row['username']."</p>";
                 echo "</div>";
@@ -49,6 +49,16 @@
         </form>
         
         ";
+
+        echo " 
+        
+        <form action='deleteprofile.php' method='POST'>            
+            <button type='submit' name='submit'>DELETE Profile IMAGE</button>
+        </form>
+        
+        ";
+
+        
     }else{
         echo "You are not logged in!!";
         echo "
