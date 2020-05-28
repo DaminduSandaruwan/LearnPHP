@@ -6,11 +6,8 @@
 
     $filename = "uploads/profile".$sessionid."*";
     $fileinfo = glob($filename);
-
     //print_r($fileinfo);
-
     $fileext = explode(".",$fileinfo[0]);
-
     $fileaxtualext = $fileext[1];
 
     $file = "uploads/profile".$sessionid.".".$fileaxtualext;

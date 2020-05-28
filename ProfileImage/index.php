@@ -24,7 +24,12 @@
             while ($rowImg = mysqli_fetch_assoc($resultImg)) {
                 echo "<div class='user-container'>";
                     if ($rowImg['status']==0) {
-                        echo "<img src='uploads/profile".$id.".png?'".mt_rand()."'>";
+                        $filename = "uploads/profile".$id."*";
+                        $fileinfo = glob($filename);
+                        //print_r($fileinfo);
+                        $fileext = explode(".",$fileinfo[0]);
+                        $fileaxtualext = $fileext[1];
+                        echo "<img src='uploads/profile".$id.".".$fileaxtualext."?".mt_rand()."'>";
                     }
                     else{
                         echo "<img src='uploads/ProfileDefault.png'>";
