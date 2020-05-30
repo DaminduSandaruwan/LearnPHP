@@ -10,13 +10,13 @@
         function generateKey(){
             $keyLength = 8;
             $str = "1234567890abcdefghijklmnopqrstuvwxyz()/$";
-            $randStr = str_shuffle($str);
+            $randStr = substr(str_shuffle($str), 0,$keyLength);
             return $randStr;
         }
 
         echo generateKey();
 
-        
+
     ?>
 </body>
 </html>
