@@ -15,6 +15,24 @@
         }
 
         echo generateKey();
+        echo "<br>";
+
+        function generateKey2(){
+            $randStr = uniqid();
+            return $randStr;
+        }
+        echo generateKey2();
+        echo "<br>";
+
+        function generateKey3(){
+            $randStr = uniqid('Damindu',true);
+            return $randStr;
+        }
+        echo generateKey3();
+        echo "<br>";
+
+        
+
 
 
     ?>
